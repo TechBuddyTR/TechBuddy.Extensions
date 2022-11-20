@@ -25,7 +25,7 @@ Every extension library will have their own NuGet Packages. Please find the deta
 
 
 #### General feedback and discussions
-Please start a discussion on the [repo issue tracker](https://github.com/TechBuddyTR/TechBuddy.Extensions.AspNet/issues)
+Please start a discussion on the [repo issue tracker](https://github.com/TechBuddyTR/TechBuddy.Extensions/issues)
 
 #### Contribution
 
@@ -38,4 +38,4 @@ As you can do that, this is not the only way to contribute. You can also raise a
 
 **License, etc.**
 
-TechBuddy.Extensions is Copyright © 2022 (Salih Cantekin)[https://github.com/salihcantekin] and other contributors under the MIT license.
+TechBuddy.Extensions is Copyright Â© 2022 (Salih Cantekin)[https://github.com/salihcantekin] and other contributors under the MIT license.
