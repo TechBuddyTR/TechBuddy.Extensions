@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<IsPackable>false</IsPackable>
+		<AssemblyName>TechBuddy.Tests.Common</AssemblyName>
+		<RootNamespace>TechBuddy.Extensions.Tests.Common</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+	</ItemGroup>
+
+</Project>
