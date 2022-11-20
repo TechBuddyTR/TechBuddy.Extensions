@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+
+		<AssemblyName>TechBuddy.AspNetCore.ApiVersioning</AssemblyName>
+		<RootNamespace>TechBuddy.Extensions.AspNetCore.ApiVersioning</RootNamespace>
+
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>TechBuddy.Extensions.AspNetCore.ApiVersioning</PackageId>
+		<PackageTags>ApiVersioning; ApiVersion; Extensions; ApiVersioning Extension;</PackageTags>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Company>TechBuddyTR Youtube</Company>
+		<Authors>Salih Cantekin, Community</Authors>
+		<Description>Provides extension methods for ApiVersioning on your WebAPI project</Description>
+		<PackageIcon>logo.png</PackageIcon>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="logo.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+
+	</ItemGroup>
+
+</Project>
