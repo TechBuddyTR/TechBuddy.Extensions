@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ValidationExtension.Tests.AF": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7191",
+      "launchBrowser": false
+    }
+  }
+}

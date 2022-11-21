@@ -1,0 +1,9 @@
+global using FluentAssertions;
+global using FluentValidation;
+global using Microsoft.AspNetCore.Http;
+global using NUnit.Framework;
+global using System.Text.Json;
+global using TechBuddy.Extension.Validation.Infrastructure.Factories;
+global using TechBuddy.Extension.Validation.Infrastructure.Models.ResponseModels;
+global using ValidationExtension.Tests.Helpers.Validators;
+global using ValidationExtension.Tests.Infrastructure.Models;
