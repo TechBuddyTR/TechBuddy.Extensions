@@ -1,11 +1,9 @@
-name: Master Validation Build
+name: Feature Validation Build
+
 on:
   push:
     branches:
-    - master
-  pull_request:
-    branches:
-    - master
+    - feature/*
     
 jobs:
   build:

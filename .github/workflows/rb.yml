@@ -1,3 +1,4 @@
+name: Release with Tag (v*.*.*) & Push Nuget
 on:
   push:
     tags:
