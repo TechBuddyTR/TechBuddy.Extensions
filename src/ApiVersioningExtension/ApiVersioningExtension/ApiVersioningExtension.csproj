@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -16,6 +16,9 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>TechBuddy.Extensions.AspNetCore.ApiVersioning</PackageId>
 		<PackageTags>ApiVersioning; ApiVersion; Extensions; ApiVersioning Extension;</PackageTags>
+
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -23,17 +26,22 @@
 		<Authors>Salih Cantekin, Community</Authors>
 		<Description>Provides extension methods for ApiVersioning on your WebAPI project</Description>
 		<PackageIcon>logo.png</PackageIcon>
-		<Copyright>MIT</Copyright>
+		<Copyright>TechBuddyTR Youtube</Copyright>
 		<PackageProjectUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="logo.png" Pack="true" PackagePath="" />
+		<Content Include="logo.png" Pack="true" PackagePath="">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 
 	</ItemGroup>
