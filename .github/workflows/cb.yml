@@ -1,11 +1,12 @@
-name: Master Validation Build
+name: Development Validation Build
+
 on:
   push:
     branches:
-    - master
+    - dev
   pull_request:
     branches:
-    - master
+    - dev
     
 jobs:
   build:
