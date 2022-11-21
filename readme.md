@@ -13,7 +13,7 @@ Not only it will be only a single line of code to use them with default configs,
 
 There are four different extension libraries planned which are;
 
- - ApiVersioning
+ - [ApiVersioning](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ApiVersioningExtension/ApiVersioningExtension)
  - Global Exception Handling
  - Validations (FluentValidation based)
  - OpenApi Support (Swagger, Swagger UI)
