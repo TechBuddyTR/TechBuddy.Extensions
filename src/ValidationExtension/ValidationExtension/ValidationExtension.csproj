@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+
+		<AssemblyName>TechBuddy.Extension.Validation</AssemblyName>
+		<RootNamespace>TechBuddy.Extension.Validation</RootNamespace>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>TechBuddy.Extensions.Validation</PackageId>
+		<PackageTags>Validation; Validation Extensions; FluentValidation Extensions; FluentValidations;</PackageTags>
+
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Company>TechBuddyTR Youtube</Company>
+		<Authors>Salih Cantekin, Community</Authors>
+		<Description>Provides extension methods for FluentValidation (IValidator) models on your WebAPI project</Description>
+		<PackageIcon>logo.png</PackageIcon>
+		<Copyright>TechBuddyTR Youtube</Copyright>
+		<PackageProjectUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="logo.png" Pack="true" PackagePath="">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+
+	</ItemGroup>			
+	<ItemGroup>
+	  <None Remove="logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="logo.png">
+	    <PackagePath></PackagePath>
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <Pack>true</Pack>
+	  </Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.2.2" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
+	</ItemGroup>
+
+
+</Project>
