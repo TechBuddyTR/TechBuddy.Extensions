@@ -10,13 +10,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiVersioningExtension", "ApiVersioningExtension", "{BBE0C91E-BF83-4A0A-AFD1-B18D61327EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiVersioningExtension", "src\ApiVersioningExtension\ApiVersioningExtension\ApiVersioningExtension.csproj", "{86F58858-A24E-4C7F-A638-8EEE33740795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiVersioningExtension", "src\ApiVersioningExtension\ApiVersioningExtension\ApiVersioningExtension.csproj", "{86F58858-A24E-4C7F-A638-8EEE33740795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiVersioningExtension.Tests", "src\ApiVersioningExtension\ApiVersioningExtension.Tests\ApiVersioningExtension.Tests.csproj", "{FA149665-C1A1-4D28-B7AA-C4756A49292C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiVersioningExtension.Tests", "src\ApiVersioningExtension\ApiVersioningExtension.Tests\ApiVersioningExtension.Tests.csproj", "{FA149665-C1A1-4D28-B7AA-C4756A49292C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestCommons", "TestCommons", "{472A8A2F-53B1-49E3-A65F-D0C057820B6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreExtensions.Tests.Common", "src\AspNetCoreExtensions.Tests.Common\AspNetCoreExtensions.Tests.Common\AspNetCoreExtensions.Tests.Common.csproj", "{A4256DAF-27B7-48A9-9804-9EEB18EE016B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreExtensions.Tests.Common", "src\AspNetCoreExtensions.Tests.Common\AspNetCoreExtensions.Tests.Common\AspNetCoreExtensions.Tests.Common.csproj", "{A4256DAF-27B7-48A9-9804-9EEB18EE016B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github_workflows", "github_workflows", "{E6788EC5-FE07-4830-B2D8-9E4071069FDF}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\rb.yml = .github\workflows\rb.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\release_vb.yml = .github\workflows\release_vb.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +51,7 @@ Global
 		{86F58858-A24E-4C7F-A638-8EEE33740795} = {BBE0C91E-BF83-4A0A-AFD1-B18D61327EB3}
 		{FA149665-C1A1-4D28-B7AA-C4756A49292C} = {BBE0C91E-BF83-4A0A-AFD1-B18D61327EB3}
 		{A4256DAF-27B7-48A9-9804-9EEB18EE016B} = {472A8A2F-53B1-49E3-A65F-D0C057820B6C}
+		{E6788EC5-FE07-4830-B2D8-9E4071069FDF} = {2A760AE2-4349-47EC-ADD4-69651ADFBDD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5085DADC-BB1A-4E92-8CD6-A7CCC1DE312E}
