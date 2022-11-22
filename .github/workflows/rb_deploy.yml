@@ -28,7 +28,7 @@ jobs:
           echo ${RELEASE_VERSION}
           echo ${GITHUB_ENV}
      
-      name: Build
+    - name: Build
       run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
     #- name: Test
     #  run: dotnet test --configuration Release /p:Version=${RELEASE_VERSION} --no-build
