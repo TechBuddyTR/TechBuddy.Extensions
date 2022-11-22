@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    #- name: Checkout
+    #  uses: actions/checkout@v2
     #- name: Verify commit exists in origin/master
     #  run: |
     #    git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
     #    git branch --remote --contains | grep origin/master
-    - name: Set output
-      id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+    #- name: Set output
+    #  id: vars
     - name: Check output  
-      env:
-        RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+    #  run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+    #  env:
+    #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
           TAG=${{ github.event.release.tag_name }}
           echo "RELEASE_VERSION=${TAG#v}" >> $GITHUB_ENV
@@ -31,13 +31,13 @@ jobs:
           echo $GITHUB_ENV
           
           echo ${RELEASE_VERSION}
-    - name: Build
-      run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
-    - name: Test
-      run: dotnet test --configuration Release /p:Version=${RELEASE_VERSION} --no-build
-    - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${RELEASE_VERSION} --no-build --output .
+    #- name: Build
+    #  run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
+    #- name: Test
+    #  run: dotnet test --configuration Release /p:Version=${RELEASE_VERSION} --no-build
+    #- name: Pack
+    #  run: dotnet pack --configuration Release /p:Version=${RELEASE_VERSION} --no-build --output .
     #- name: Push
     #  run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
-      env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    #  env:
+    #    NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
