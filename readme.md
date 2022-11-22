@@ -14,8 +14,8 @@ Not only it will be only a single line of code to use them with default configs,
 There are four different extension libraries planned which are;
 
  - [ApiVersioning](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ApiVersioningExtension/ApiVersioningExtension)
- - [Global Exception Handling](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ValidationExtension/ValidationExtension)
- - Validations (FluentValidation based)
+ - Global Exception Handling
+ - [Validations (FluentValidation based)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ValidationExtension/ValidationExtension)
  - OpenApi Support (Swagger, Swagger UI)
 
 
