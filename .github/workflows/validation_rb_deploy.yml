@@ -1,5 +1,5 @@
 env:
-  ProjectPath: ~/src/ValidationExtension/ValidationExtension
+  ProjectPath: src/ValidationExtension/ValidationExtension
   ProjectName: ValidationExtension
   TagName: Validation
 
