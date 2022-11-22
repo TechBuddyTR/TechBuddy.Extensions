@@ -1,5 +1,5 @@
 env:
-  ProjectPath: .\src\ValidationExtension\ValidationExtension
+  ProjectPath: ~/src/ValidationExtension/ValidationExtension
   ProjectName: ValidationExtension
   TagName: Validation
 
@@ -33,7 +33,7 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
     - name: Pack
-      run: dotnet pack ${{env.ProjectPath}}\${{env.ProjectName}}.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
+      run: dotnet pack ${{env.ProjectPath}}/${{env.ProjectName}}.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
     #- name: Push
     #  run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
     #  env:
