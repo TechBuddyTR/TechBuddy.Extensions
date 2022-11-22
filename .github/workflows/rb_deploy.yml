@@ -23,9 +23,7 @@ jobs:
     #  env:
     #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
-          echo ::set-output name=TAG::${{ github.event.release.tag_name }}
-          #TAG=${{ github.event.release.tag_name }}
-          echo "RELEASE_VERSION=${TAG#v}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=${tag#v}" >> $GITHUB_ENV
           echo $GITHUB_ENV
           
           echo ${RELEASE_VERSION:1} >> $GITHUB_ENV
