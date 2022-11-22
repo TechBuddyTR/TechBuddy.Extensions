@@ -16,27 +16,32 @@ jobs:
     #  run: |
     #    git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
     #    git branch --remote --contains | grep origin/master
-    - name: Set output
-      id: vars
+    #- name: Set output
+    #  id: vars
     #  run: | 
     #      TAG=${{ github.event.release.tag_name }}
     #      echo "RELEASE_VERSION=${TAG#v}" >> $GITHUB_ENV
-      run: | 
-          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          
+    #  run: | 
+    #      echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+    
+    - name: Set VERSION variable from tag
+        run: | 
+          TAG=${{ github.event.release.tag_name }}
+          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
     - name: Check output
-      env:
-        RELEASE_VERSION: ${{ github.event.release.tag_name }}
+    #  env:
+    #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
+          echo ${VERSION}
+          echo $VERSION
+          echo ${{ env.VERSION }}
      
     - name: Build
-      run: dotnet build --configuration Release /p:Version=${{ env.RELEASE_VERSION }}
+      run: dotnet build --configuration Release /p:Version=${{ env.VERSION }}
     #- name: Test
-    #  run: dotnet test --configuration Release /p:Version=${RELEASE_VERSION} --no-build
+    #  run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
     #- name: Pack
-    #  run: dotnet pack --configuration Release /p:Version=${RELEASE_VERSION} --no-build --output .
+    #  run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
     #- name: Push
     #  run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
     #  env:
