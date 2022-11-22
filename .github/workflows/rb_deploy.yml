@@ -3,6 +3,7 @@ on:
   push:
     tags:
     - "Validation.v*.*.*"
+    - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
