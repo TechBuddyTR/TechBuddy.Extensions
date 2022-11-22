@@ -3,7 +3,6 @@ on:
   push:
     tags:
     - "Validation.v*.*.*"
-    - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,10 +25,10 @@ jobs:
      
     - name: Build
       run: dotnet build --configuration Release /p:Version=${VERSION}
-    #- name: Test
-    #  run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
-    #- name: Pack
-    #  run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+    - name: Test
+      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+    - name: Pack
+      run: dotnet pack ValidationExtension.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
     #- name: Push
     #  run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
     #  env:
