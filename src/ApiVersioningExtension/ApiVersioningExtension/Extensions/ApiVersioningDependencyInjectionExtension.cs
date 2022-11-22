@@ -15,7 +15,7 @@ public static class ApiVersioningDependencyInjectionExtension
     /// <returns>returns services</returns>
     public static IServiceCollection AddTechBuddyApiVersioning(this IServiceCollection services)
     {
-        return services.AddTechBuddyApiVersioning(options => 
+        return services.AddTechBuddyApiVersioning(options =>
         {
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.DefaultApiVersion = "1.0";
@@ -36,6 +36,14 @@ public static class ApiVersioningDependencyInjectionExtension
         ApiVersioningConfig config = new();
         options.Invoke(config);
 
+        AddApiVersioning(services, config);
+
+
+        return services;
+    }
+
+    private static void AddApiVersioning(IServiceCollection services, ApiVersioningConfig config)
+    {
         services.AddApiVersioning(opt =>
         {
             // Set the error response provider
@@ -97,9 +105,23 @@ public static class ApiVersioningDependencyInjectionExtension
                 });
             }
         });
+        if (config.EnableVersionedApiExplorer)
+            AddApiVersioningExplorer(services);
 
-        return services;
     }
 
+    private static void AddApiVersioningExplorer(IServiceCollection services)
+    {
+        services.AddVersionedApiExplorer(options =>
+        {
+            // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+            // note: the specified format code will format the version as "'v'major[.minor][-status]"
+            options.GroupNameFormat = "'v'VVV";
+
+            // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+            // can also be used to control the format of the API version in route templates
+            options.SubstituteApiVersionInUrl = true;
+        });
+    }
 
 }
