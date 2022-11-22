@@ -18,18 +18,15 @@ jobs:
     #    git branch --remote --contains | grep origin/master
     - name: Set output
       id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      run: | 
+          TAG=${{ github.event.release.tag_name }}
+          echo "RELEASE_VERSION=${TAG#v}" >> $GITHUB_ENV
     - name: Check output
     #  env:
     #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
-          echo "RELEASE_VERSION=${tag#v}" >> $GITHUB_ENV
+          echo $RELEASE_VERSION
           echo $GITHUB_ENV
-          
-          echo ${RELEASE_VERSION:1} >> $GITHUB_ENV
-          echo $GITHUB_ENV
-          
-          echo ${RELEASE_VERSION}
     #- name: Build
     #  run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
     #- name: Test
