@@ -38,4 +38,4 @@ As you can do that, this is not the only way to contribute. You can also raise a
 
 **License, etc.**
 
-TechBuddy.Extensions is Copyright © 2022 (Salih Cantekin)[https://github.com/salihcantekin] and other contributors under the MIT license.
+TechBuddy.Extensions is Copyright © 2022 [Salih Cantekin](https://github.com/salihcantekin) and other contributors under the MIT license.
