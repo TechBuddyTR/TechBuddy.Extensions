@@ -30,10 +30,8 @@ jobs:
           echo "VERSION=${VERSION:1}" >> $GITHUB_ENV
           
     - name: Check output
-    #  env:
-    #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
-          echo ${VERSION}
+          echo ${{env.VERSION}}
      
     - name: Build
       run: dotnet build --configuration Release /p:Version=${VERSION}
