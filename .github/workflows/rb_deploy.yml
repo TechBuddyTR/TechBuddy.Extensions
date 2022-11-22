@@ -24,7 +24,7 @@ jobs:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
       run: |
           echo $RELEASE_VERSION
-          echo "RELEASE_VERSION=${tag#v}" >> $GITHUB_ENV
+          echo ${RELEASE_VERSION:1} >> $GITHUB_ENV
           echo ${RELEASE_VERSION}          
           echo ${{ steps.vars.outputs.tag }}
     - name: Build
