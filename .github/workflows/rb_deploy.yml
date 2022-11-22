@@ -23,10 +23,12 @@ jobs:
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
       run: |
-          echo $RELEASE_VERSION
+          TAG=${{ github.event.release.tag_name }}
+          echo "RELEASE_VERSION=${TAG#v}" >> $GITHUB_ENV
           echo ${RELEASE_VERSION:1} >> $GITHUB_ENV
           echo ${RELEASE_VERSION}          
           echo ${{ steps.vars.outputs.tag }}
+          echo $GITHUB_ENV
     - name: Build
       run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
     - name: Test
