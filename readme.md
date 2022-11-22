@@ -15,7 +15,7 @@ There are four different extension libraries planned which are;
 
  - [ApiVersioning](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ApiVersioningExtension/ApiVersioningExtension)
  - Global Exception Handling
- - Validations (FluentValidation based)
+ - [Validations (FluentValidation based)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ValidationExtension/ValidationExtension)
  - OpenApi Support (Swagger, Swagger UI)
 
 
@@ -38,4 +38,4 @@ As you can do that, this is not the only way to contribute. You can also raise a
 
 **License, etc.**
 
-TechBuddy.Extensions is Copyright © 2022 (Salih Cantekin)[https://github.com/salihcantekin] and other contributors under the MIT license.
+TechBuddy.Extensions is Copyright © 2022 [Salih Cantekin](https://github.com/salihcantekin) and other contributors under the MIT license.

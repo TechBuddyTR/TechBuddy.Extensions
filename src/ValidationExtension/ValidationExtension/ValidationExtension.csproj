@@ -39,6 +39,12 @@
 		</Content>
 	</ItemGroup>
 
+	 <ItemGroup>
+		<Content Include="logo.png" Pack="true" PackagePath="">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	 
 	<ItemGroup>
 		<None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
 		<None Include="README.md" Pack="true" PackagePath="\" />
@@ -46,17 +52,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 
 	</ItemGroup>			
-	<ItemGroup>
-	  <None Remove="logo.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="logo.png">
-	    <PackagePath></PackagePath>
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	    <Pack>true</Pack>
-	  </Content>
-	</ItemGroup>
+	
 
 
 	<ItemGroup>

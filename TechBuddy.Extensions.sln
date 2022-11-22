@@ -20,21 +20,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreExtensions.Tests.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github_workflows", "github_workflows", "{E6788EC5-FE07-4830-B2D8-9E4071069FDF}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\apiversioning_rb_deploy.yml = .github\workflows\apiversioning_rb_deploy.yml
 		.github\workflows\cb.yml = .github\workflows\cb.yml
-		.github\workflows\rb_deploy.yml = .github\workflows\rb_deploy.yml
 		.github\workflows\rb.yml = .github\workflows\rb.yml
+		.github\workflows\exceptionhandling_rb_deploy.yml = .github\workflows\exceptionhandling_rb_deploy.yml
+		.github\workflows\openapi_rb_deploy.yml = .github\workflows\openapi_rb_deploy.yml
 		.github\workflows\vb.yml = .github\workflows\vb.yml
+		.github\workflows\validation_rb_deploy.yml = .github\workflows\validation_rb_deploy.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValidationExtension", "ValidationExtension", "{60EF4920-1A12-4E7F-822B-CE069E232A63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationExtension", "src\ValidationExtension\ValidationExtension\ValidationExtension.csproj", "{32DA7794-B788-4093-B6A2-200FE5BD3AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension", "src\ValidationExtension\ValidationExtension\ValidationExtension.csproj", "{32DA7794-B788-4093-B6A2-200FE5BD3AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationExtension.Tests", "src\ValidationExtension\ValidationExtension.Tests\ValidationExtension.Tests.csproj", "{73A32BC7-2B54-4159-AB73-1D114A9CACBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests", "src\ValidationExtension\ValidationExtension.Tests\ValidationExtension.Tests.csproj", "{73A32BC7-2B54-4159-AB73-1D114A9CACBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationExtension.Tests.WebApi", "src\ValidationExtension\ValidationExtension.Tests.WebApi\ValidationExtension.Tests.WebApi.csproj", "{52F1CEDD-5F42-4394-88D0-2B2C19B168C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests.WebApi", "src\ValidationExtension\ValidationExtension.Tests.WebApi\ValidationExtension.Tests.WebApi.csproj", "{52F1CEDD-5F42-4394-88D0-2B2C19B168C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationExtension.Tests.AF", "src\ValidationExtension\ValidationExtension.Tests.AF\ValidationExtension.Tests.AF.csproj", "{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests.AF", "src\ValidationExtension\ValidationExtension.Tests.AF\ValidationExtension.Tests.AF.csproj", "{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
