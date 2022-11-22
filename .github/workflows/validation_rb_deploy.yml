@@ -2,12 +2,12 @@ env:
   ProjectName: ValidationExtension
   TagName: Validation
 
-name: Release with Tag (${{env.TagName}}.v*.*.*) & Push Nuget
+name: Release with Tag (Validation.v*.*.*) & Push Nuget
 
 on:
   push:
     tags:
-    - "${{env.TagName}}.v*.*.*"
+    - "Validation.v*.*.*"
 
 jobs:
   build:
