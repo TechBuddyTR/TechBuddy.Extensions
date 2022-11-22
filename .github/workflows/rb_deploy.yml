@@ -18,7 +18,7 @@ jobs:
        
     - name: Set VERSION variable from tag
       run: | 
-            echo "VERSION=${GITHUB_REF#refs/tags/Validation.v}"
+            echo "VERSION=${GITHUB_REF#refs/tags/Validation.v}" >> $GITHUB_ENV
           
     - name: Check output
       run: |
