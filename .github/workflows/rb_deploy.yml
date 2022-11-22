@@ -25,10 +25,11 @@ jobs:
     #  env:
     #    RELEASE_VERSION: ${{ github.event.release.tag_name }}
       run: |
-          echo $RELEASE_VERSION
-          echo $GITHUB_ENV
-    #- name: Build
-    #  run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
+          echo ${RELEASE_VERSION}
+          echo ${GITHUB_ENV}
+     
+      name: Build
+      run: dotnet build --configuration Release /p:Version=${RELEASE_VERSION}
     #- name: Test
     #  run: dotnet test --configuration Release /p:Version=${RELEASE_VERSION} --no-build
     #- name: Pack
