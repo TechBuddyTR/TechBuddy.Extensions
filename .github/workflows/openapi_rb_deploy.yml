@@ -1,14 +1,14 @@
 env:
-  ProjectPath: src/ApiVersioningExtension/ApiVersioningExtension
-  ProjectName: ApiVersioningExtension
-  TagName: ApiVersioning
+  ProjectPath: src/OpenApiExtension/OpenApiExtension
+  ProjectName: OpenApiExtension
+  TagName: OpenApi
 
-name: Release with Tag (ApiVersioning.v*.*.*) & Push Nuget
+name: Release with Tag (OpenApi.v*.*.*) & Push Nuget
 
 on:
   push:
     tags:
-    - "ApiVersioning.v*.*.*"
+    - "OpenApi.v*.*.*"
 
 jobs:
   build:

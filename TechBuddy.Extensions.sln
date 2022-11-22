@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github_workflows", "github_
 		.github\workflows\apiversioning_rb_deploy.yml = .github\workflows\apiversioning_rb_deploy.yml
 		.github\workflows\cb.yml = .github\workflows\cb.yml
 		.github\workflows\rb.yml = .github\workflows\rb.yml
+		.github\workflows\exceptionhandling_rb_deploy.yml = .github\workflows\exceptionhandling_rb_deploy.yml
+		.github\workflows\openapi_rb_deploy.yml = .github\workflows\openapi_rb_deploy.yml
 		.github\workflows\vb.yml = .github\workflows\vb.yml
 		.github\workflows\validation_rb_deploy.yml = .github\workflows\validation_rb_deploy.yml
 	EndProjectSection
