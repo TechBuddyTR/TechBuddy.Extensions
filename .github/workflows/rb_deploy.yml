@@ -2,6 +2,7 @@ name: Release with Tag (v*.*.*) & Push Nuget
 on:
   push:
     tags:
+    - "Validation.*"
     - "Validation.v*.*.*"
     - "v*.*.*"
 jobs:
@@ -17,7 +18,7 @@ jobs:
     #    git branch --remote --contains | grep origin/master
     - name: Set output
       id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\/Validation.*/}
     - name: Check output  
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
