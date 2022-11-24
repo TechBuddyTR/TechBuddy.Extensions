@@ -30,8 +30,8 @@ Not only it will be only a single line of code to use them with default configs,
 | Package Name | Package | Download |
 | ------------- | ------------- | ------------- |
 | ApiVersioning | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning/) |
-| Validation | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TTechBuddy.Extensions.Validation/) |
-| ExceptionHandling | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.ExceptionHandling) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TTechBuddy.Extensions.ExceptionHandling/) |
+| Validation | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation/) |
+| ExceptionHandling | [![](https://img.shields.io/nuget/v//TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages//TechBuddy.Extensions.AspNetCore.ExceptionHandling) | [![](https://img.shields.io/nuget/dt//TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages//TechBuddy.Extensions.AspNetCore.ExceptionHandling/) |
 
 
 
