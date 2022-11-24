@@ -22,11 +22,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github_workflows", "github_
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\apiversioning_rb_deploy.yml = .github\workflows\apiversioning_rb_deploy.yml
 		.github\workflows\cb.yml = .github\workflows\cb.yml
-		.github\workflows\rb.yml = .github\workflows\rb.yml
 		.github\workflows\exceptionhandling_rb_deploy.yml = .github\workflows\exceptionhandling_rb_deploy.yml
 		.github\workflows\openapi_rb_deploy.yml = .github\workflows\openapi_rb_deploy.yml
-		.github\workflows\vb.yml = .github\workflows\vb.yml
+		.github\workflows\rb.yml = .github\workflows\rb.yml
 		.github\workflows\validation_rb_deploy.yml = .github\workflows\validation_rb_deploy.yml
+		.github\workflows\vb.yml = .github\workflows\vb.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValidationExtension", "ValidationExtension", "{60EF4920-1A12-4E7F-822B-CE069E232A63}"
@@ -38,6 +38,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests.WebApi", "src\ValidationExtension\ValidationExtension.Tests.WebApi\ValidationExtension.Tests.WebApi.csproj", "{52F1CEDD-5F42-4394-88D0-2B2C19B168C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests.AF", "src\ValidationExtension\ValidationExtension.Tests.AF\ValidationExtension.Tests.AF.csproj", "{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionHandlingExtension", "ExceptionHandlingExtension", "{D2AAE295-64F5-4B57-9E13-6D30FF4204FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingExtension", "src\ExceptionHandlingExtension\ExceptionHandlingExtension\ExceptionHandlingExtension.csproj", "{A022F7A7-5E60-4DEE-B218-56FCA2464410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingExtension.Tests", "src\ExceptionHandlingExtension\ExceptionHandlingExtension.Tests\ExceptionHandlingExtension.Tests.csproj", "{A5540922-A24D-461C-BE3B-B8FA85FECFDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +79,14 @@ Global
 		{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A022F7A7-5E60-4DEE-B218-56FCA2464410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A022F7A7-5E60-4DEE-B218-56FCA2464410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A022F7A7-5E60-4DEE-B218-56FCA2464410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A022F7A7-5E60-4DEE-B218-56FCA2464410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +100,8 @@ Global
 		{73A32BC7-2B54-4159-AB73-1D114A9CACBD} = {60EF4920-1A12-4E7F-822B-CE069E232A63}
 		{52F1CEDD-5F42-4394-88D0-2B2C19B168C0} = {60EF4920-1A12-4E7F-822B-CE069E232A63}
 		{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6} = {60EF4920-1A12-4E7F-822B-CE069E232A63}
+		{A022F7A7-5E60-4DEE-B218-56FCA2464410} = {D2AAE295-64F5-4B57-9E13-6D30FF4204FE}
+		{A5540922-A24D-461C-BE3B-B8FA85FECFDA} = {D2AAE295-64F5-4B57-9E13-6D30FF4204FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5085DADC-BB1A-4E92-8CD6-A7CCC1DE312E}
