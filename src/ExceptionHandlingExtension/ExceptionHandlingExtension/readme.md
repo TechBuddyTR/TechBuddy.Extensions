@@ -1,9 +1,8 @@
-﻿# Exception Handling
+# Exception Handling
 
 Exception Handling is giving you the opportunity to manage all *unhandled* exceptions in a single point. By implementing this extension in your WebAPI project, 
-you'll be able to catch all unhandled exceptions and return back a standard exception model as well as you'll be able to provide your own handler method which will be called once any unhandled exception is occured.
+you'll be able to catch all unhandled exceptions and return back a standard exception model as well as you'll be able to provide your own handler method which will be called once any unhandled exception is occured.    
 
-<br>
 Apart from that, you can customize logging by providing an ILogger interface to log the details once the exception is cought by the handler. 
 `UseExceptionDetails` is important because once the default handler is used, it'll return back the exception details. 
 If `UseExceptionDetails` is true, it returns the StackTrace of the Exception. 
@@ -17,8 +16,8 @@ On the other hand, logging the details is irrelevant to this parameter. No matte
 app.ConfigureTechBuddyExceptionHandling(opt =>
 {
     var logger = app.Services.GetService<ILogger>();
-    opt.UseExceptionDetails = true; // details will be in the default response model (`DefaultExceptionHandlerResponseModel`)
-    opt.UseLogger(logger); // details will be logged not matter `UseExceptionDetails` is true or false
+
+    opt.UseLogger(logger, true); // details will be in the default response model (`DefaultExceptionHandlerResponseModel`)
 });
 
 ```
@@ -34,7 +33,7 @@ opt.UseCustomHandler((httpContext, exception, logger) =>
     var dynamicResponseModel = new { ErrorMessage = exception.Message };
 
     // we can set the response but don't have to
-    return httpContext.Response.WriteAsJsonAsync(dynamicResponseModel);
+    return httpContext.Response.WriteAsJsonAsync(dynamicResponseModel); // WriteAsJsonAsync is an extension method.
 });
 ```
 
@@ -55,7 +54,7 @@ In this usage, you are also able to use different handlers for different type of
 
 ```csharp
 
-var options = new ExceptionHandlingOptions { UseExceptionDetails = false };
+var options = new ExceptionHandlingOptions();
 
 options.AddCustomHandler<ValidationException>((context, ex, logger) =>
 {
