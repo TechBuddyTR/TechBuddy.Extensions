@@ -53,9 +53,11 @@ public static class HttpRequestExtensions
     /// <returns>The generic object</returns>
     private static async Task<T> ReadBodyAsync<T>(this HttpRequest req)
     {
-        using var reader = new StreamReader(req.Body, Encoding.UTF8);
-
+        req.EnableBuffering();
+        req.Body.Seek(0, SeekOrigin.Begin);
+        using var reader = new StreamReader(req.Body, Encoding.UTF8, leaveOpen: true);
         var jsonBody = await reader.ReadToEndAsync();
+        req.Body.Position = 0;
 
         return JsonSerializer.Deserialize<T>(jsonBody);
     }
