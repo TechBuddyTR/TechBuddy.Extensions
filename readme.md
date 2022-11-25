@@ -34,11 +34,6 @@ Not only it will be only a single line of code to use them with default configs,
 | ExceptionHandling | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling/) |
 
 
-
-
-
-
-
 ### Extensions
 
 There are four different extension libraries planned which are;

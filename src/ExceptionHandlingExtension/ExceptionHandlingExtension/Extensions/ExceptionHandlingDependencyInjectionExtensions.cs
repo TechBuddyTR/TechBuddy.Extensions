@@ -22,7 +22,7 @@ public static class ExceptionHandlingDependencyInjectionExtensions
     {
         return app.ConfigureTechBuddyExceptionHandling(options =>
         {
-            options.UseLogger(true);
+            options.UseLogger();
         });
     }
 
@@ -50,37 +50,56 @@ public static class ExceptionHandlingDependencyInjectionExtensions
     public static async Task ConfigureTechBuddyExceptionHandling(this IApplicationBuilder app,
         ExceptionHandlingOptions opt)
     {
-        var logger = opt.Logger
-            ?? (opt.LoggingEnabled
-                    ? app.ApplicationServices.GetService<ILogger>()
-                    : null);
+        ILogger logger = opt.Logger;
 
-        app.UseExceptionHandler(options =>
+        if (logger is null && opt.LoggingEnabled)
+        {
+            logger = GetLoggerService(app.ApplicationServices);
+        }
+
+        app.UseExceptionHandler(async options =>
         {
             if (opt.ExceptionHandler is not null)
             {
-                RegisterHandlers(options,
+                await RegisterHandlers(options,
                                  logger,
                                  opt.ExceptionHandler,
                                  opt);
             }
             else
             {
-                RegisterHandlers(options,
+                await RegisterHandlers(options,
                                 logger,
                                 (c, e, l) => DefaultExceptionHandler.Handle(c, e, l, opt.UseExceptionDetails),
                                 opt);
             }
         });
+
+        await Task.CompletedTask;
     }
 
 
-    private static Task RegisterHandlers(IApplicationBuilder app,
+    private static ILogger GetLoggerService(IServiceProvider sp)
+    {
+        // Try to get ILogger first
+        var serviceLogger = sp.GetService<ILogger>();
+
+        if (serviceLogger is not null)
+            return serviceLogger;
+
+        // If no ILogger, try to create yours by using ILoggerFactory
+        var logFactory = sp.GetService<ILoggerFactory>();
+        serviceLogger = logFactory.CreateLogger<ExceptionHandlingOptions>();
+
+        return serviceLogger;
+    }
+
+    private static async Task RegisterHandlers(IApplicationBuilder app,
                                          ILogger logger,
                                          Func<HttpContext, Exception, ILogger, Task> exceptionHandler,
                                          ExceptionHandlingOptions options)
     {
-        app.Run(context =>
+        app.Run(async context =>
         {
             var exceptionObject = context.Features.Get<IExceptionHandlerFeature>();
             var type = exceptionObject.Error.GetType();
@@ -88,17 +107,15 @@ public static class ExceptionHandlingDependencyInjectionExtensions
 
             if (handler is not null)
             {
-                handler.Invoke(context, exceptionObject.Error, logger);
+                await handler.Invoke(context, exceptionObject.Error, logger);
             }
             else
             {
-                exceptionHandler.Invoke(context, exceptionObject.Error, logger);
+                await exceptionHandler.Invoke(context, exceptionObject.Error, logger);
             }
-
-            return Task.CompletedTask;
         });
 
-        return Task.CompletedTask;
+        await Task.CompletedTask;
     }
 
 
