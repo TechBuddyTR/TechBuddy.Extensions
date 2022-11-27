@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechBuddy.Extensions.OpenApi.Infrastructure;
+﻿namespace TechBuddy.Extensions.OpenApi.Infrastructure;
 internal class SwaggerConstants
 {
     internal const string DefaultProjectName = "TechBuddy.Extensions.ProjectName";

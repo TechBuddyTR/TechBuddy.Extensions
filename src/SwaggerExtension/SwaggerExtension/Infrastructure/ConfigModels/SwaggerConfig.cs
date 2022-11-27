@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
+using TechBuddy.Extensions.OpenApi.Infrastructure;
 
-namespace TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
+namespace TechBuddy.Extensions.OpenApi;
 
 /// <summary>
 /// The config to customize Swagger implementation
@@ -51,14 +47,14 @@ public class SwaggerConfig
     /// <exception cref="ArgumentNullException">This is thrown when key is null or empty</exception>
     public SwaggerConfig AddHeader(string key, string value)
     {
-        ArgumentNullException.ThrowIfNull(key);
+        if (string.IsNullOrEmpty(key))
+            throw new ArgumentNullException(key);
 
-        var added =  Headers.TryAdd(key, value);
+        var added = Headers.TryAdd(key, value);
 
-        if (!added)
-            throw new ArgumentException($"{key} already exists in header");
-
-        return this;
+        return added
+                ? this 
+                : throw new ArgumentException($"{key} already exists in header");
     }
 
     /// <summary>
@@ -75,6 +71,6 @@ public class SwaggerConfig
         return AddHeader(key, headerValue);
     }
 
-    
+
 
 }

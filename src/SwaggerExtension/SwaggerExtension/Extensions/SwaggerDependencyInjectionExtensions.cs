@@ -1,22 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechBuddy.Extensions.OpenApi.Infrastructure;
-using TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
 using TechBuddy.Extensions.OpenApi.Infrastructure.OperationFilters;
 using TechBuddy.Extensions.OpenApi.Infrastructure.ProduceResponseType;
 
-namespace TechBuddy.Extensions.OpenApi.Extensions;
+namespace TechBuddy.Extensions.OpenApi;
 
 /// <summary>
 /// The extension class for OpenApi

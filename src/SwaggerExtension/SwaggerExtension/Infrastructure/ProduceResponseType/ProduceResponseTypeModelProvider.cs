@@ -1,14 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
-using static System.Collections.Specialized.BitVector32;
 
 namespace TechBuddy.Extensions.OpenApi.Infrastructure.ProduceResponseType;
 internal class ProduceResponseTypeModelProvider : IApplicationModelProvider
@@ -64,10 +56,10 @@ internal class ProduceResponseTypeModelProvider : IApplicationModelProvider
             {
                 var typeBaseStatusCodeFound = config.TypeBaseStatusCodes.Any(i => i.Key == defaultStatusCode.HttpStatusCode);
 
-                if(typeBaseStatusCodeFound)
+                if (typeBaseStatusCodeFound)
                     returnType = config.TypeBaseStatusCodes[defaultStatusCode.HttpStatusCode];
             }
-            
+
             AddFilterToActionModel(action,
                     new ProducesResponseTypeAttribute(returnType, (int)defaultStatusCode.HttpStatusCode));
         }

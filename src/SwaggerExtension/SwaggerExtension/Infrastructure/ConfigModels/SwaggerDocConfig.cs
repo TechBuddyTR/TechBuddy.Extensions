@@ -1,4 +1,4 @@
-﻿namespace TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
+﻿namespace TechBuddy.Extensions.OpenApi;
 
 /// <summary>
 /// The Xml Documentation Config for Swagger
@@ -15,7 +15,7 @@ public class SwaggerDocConfig
     /// <summary>
     /// The xml file path
     /// </summary>
-    public string XmlFilePath 
+    public string XmlFilePath
     {
         get => xmlFilePath;
         set

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TechBuddy.Extensions.OpenApi.Infrastructure;
 
-namespace TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
+namespace TechBuddy.Extensions.OpenApi;
 
 /// <summary>
 /// The config to set the Auth in Swagger implementation

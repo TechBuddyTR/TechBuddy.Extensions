@@ -1,11 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
 
 namespace TechBuddy.Extensions.OpenApi.Infrastructure.OperationFilters;
 

@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
+namespace TechBuddy.Extensions.OpenApi;
 
 /// <summary>
 /// The config to customize how our endpoints will return back the response
@@ -45,8 +40,14 @@ public class ResponseTypeModelProviderConfig
     /// </summary>
     public Dictionary<HttpStatusCode, Type> TypeBaseStatusCodes { get; private set; }
 
-    internal List<string> ExcludedActions { get; set; }
-    internal List<string> ExcludedControllers { get; set; }
+    /// <summary>
+    /// The list of excluded action methods if there are any.
+    /// </summary>
+    public List<string> ExcludedActions { get; set; }
+    /// <summary>
+    /// The list of excluded controller if there are any.
+    /// </summary>
+    public List<string> ExcludedControllers { get; set; }
 
 
     /// <summary>
