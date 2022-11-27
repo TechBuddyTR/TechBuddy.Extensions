@@ -33,6 +33,10 @@ public class SwaggerConfig
     /// </summary>
     public SwaggerDocConfig XmlDocConfig { get; set; }
 
+    /// <summary>
+    /// The config for ResponseTypeModelProvider
+    /// </summary>
+    public ResponseTypeModelProviderConfig ResponseTypeModelProviderConfig { get; set; }
 
 
 
@@ -61,7 +65,7 @@ public class SwaggerConfig
     /// Enables to add header value when requesting via Swagger UI
     /// </summary>
     /// <param name="key">The header key</param>
-    /// <param name="valueAction">The action to get the header value</param>
+    /// <param name="valueFunc">The action to get the header value</param>
     /// <returns>return itself</returns>
     /// <exception cref="ArgumentException">This is thrown when duplicate key is added</exception>
     /// <exception cref="ArgumentNullException">This is thrown when key is null or empty</exception>
@@ -70,5 +74,7 @@ public class SwaggerConfig
         var headerValue = valueFunc();
         return AddHeader(key, headerValue);
     }
+
+    
 
 }

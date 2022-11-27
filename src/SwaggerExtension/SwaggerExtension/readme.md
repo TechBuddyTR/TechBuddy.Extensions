@@ -60,8 +60,6 @@ app.UseTechBuddySwaggerWithApiVersioning(app.Services.GetService<IApiVersionDesc
 
 ```
 
-<br>
-
 
 `ResponseTypeModelProviderConfig` is to provide the required information of any endpoint returns status code and/or model. With default config, Swagger shows that any endpoint will return 200 (OK) HttpStatusCode.
 However, you are able to customize that behavior by using `[ProducesResponseTypeAttribute]` on the top of your Action methods. With this attribute not only you provide the response HttpStatusCode but also the response model.

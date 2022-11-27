@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SwaggerExtension.Tests.WebApi.Infrastructure.Models;
 
 namespace SwaggerExtension.Tests.WebApi.Controllers.v1;
 
@@ -23,8 +24,12 @@ public class TestController : ControllerBase
     /// <param name="testModel"></param>
     /// <returns>IActionResult</returns>
     [HttpPost]
-    public IActionResult Post(TestModel testModel)
+    //[ProducesResponseType(StatusCodes.Status400BadRequest, typeof(BadRequestResponseModel))]
+    public ActionResult Post(TestModel testModel)
     {
-        return Ok(testModel.FullName);
+        if (testModel.Id == 0)
+            return BadRequest("Error!");
+
+        return Ok(testModel);
     }
 }

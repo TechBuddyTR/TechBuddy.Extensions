@@ -14,6 +14,7 @@ internal class SwaggerConstants
     internal const string DefaultSwaggerEndpoint = $"/{DefaultSwaggerEndpointFileDirectory}/v1/{DefaultSwaggerEndpointFileName}";
     internal const string DefaultSwaggerApiVersion = "1";
 
+    internal const string DefaultResponseContentType = "application/json";
 
     internal const string BearerFormat = "JWT";
     internal const string BearerHeaderKey = "bearer";

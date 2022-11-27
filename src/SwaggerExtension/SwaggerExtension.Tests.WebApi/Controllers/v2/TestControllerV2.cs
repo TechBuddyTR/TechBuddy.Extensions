@@ -5,7 +5,7 @@ namespace SwaggerExtension.Tests.WebApi.Controllers.v2;
 [Route("api/[controller]")]
 [ApiController]
 [ApiVersion("2")]
-public class TestController : ControllerBase
+public class TestControllerV2 : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()

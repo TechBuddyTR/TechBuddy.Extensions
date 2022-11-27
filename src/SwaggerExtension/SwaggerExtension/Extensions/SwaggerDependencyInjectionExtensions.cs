@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 using TechBuddy.Extensions.OpenApi.Infrastructure;
 using TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
 using TechBuddy.Extensions.OpenApi.Infrastructure.OperationFilters;
+using TechBuddy.Extensions.OpenApi.Infrastructure.ProduceResponseType;
 
 namespace TechBuddy.Extensions.OpenApi.Extensions;
 
@@ -47,6 +49,11 @@ public static class SwaggerDependencyInjectionExtensions
     {
         config = new SwaggerConfig();
         configAction(config);
+
+        if (config.ResponseTypeModelProviderConfig is not null)
+        {
+            services.ConfigureTechBuddyResponesTypemodelProvider(config.ResponseTypeModelProviderConfig);
+        }
 
         services.AddSwaggerGen(c =>
         {
