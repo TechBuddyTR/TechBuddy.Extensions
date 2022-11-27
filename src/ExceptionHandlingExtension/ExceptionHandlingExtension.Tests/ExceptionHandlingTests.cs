@@ -54,8 +54,8 @@ public sealed class ExceptionHandlingTests
     public async Task ExceptionHandlingWithNoHandler_WhenUseExceptionDetailsIsTrue_ShouldReturnExceptionMessage()
     {
         // Arrange
-        var options = new ExceptionHandlingOptions();
-        options.UseLogger(true);
+        var options = new ExceptionHandlingOptions() { UseExceptionDetails = true };
+        options.UseLogger();
         var server = GetServerWithOptions(options);
         var client = server.CreateClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Test/ThrowException");
@@ -76,8 +76,8 @@ public sealed class ExceptionHandlingTests
     public async Task ExceptionHandlingWithNoHandler_WithDetails_ShouldReturnInternalServer()
     {
         // Arrange
-        var options = new ExceptionHandlingOptions();
-        options.UseLogger(true);
+        var options = new ExceptionHandlingOptions() { UseExceptionDetails = true };
+        options.UseLogger();
         var server = GetServerWithOptions(options);
         var client = server.CreateClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Test/ThrowException");
@@ -95,8 +95,8 @@ public sealed class ExceptionHandlingTests
     public async Task ExceptionHandlingWithNoHandler_WithDetails_ShouldReturnExceptionMessage()
     {
         // Arrange
-        var options = new ExceptionHandlingOptions();
-        options.UseLogger(true);
+        var options = new ExceptionHandlingOptions() { UseExceptionDetails = true };
+        options.UseLogger();
         var server = GetServerWithOptions(options);
         var client = server.CreateClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Test/ThrowException");
@@ -193,8 +193,8 @@ public sealed class ExceptionHandlingTests
         // Arrange
         var expectedMessage = TestConstants.ExceptionMessage;
         Mock<ILogger> mockLogger = new Mock<ILogger>();
-        var opt = new ExceptionHandlingOptions();
-        opt.UseLogger(mockLogger.Object, true);
+        var opt = new ExceptionHandlingOptions() { UseExceptionDetails = true };
+        opt.UseLogger(mockLogger.Object);
         var server = GetServerWithOptions(opt);
         var client = server.CreateClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Test/ThrowException");
@@ -217,8 +217,8 @@ public sealed class ExceptionHandlingTests
         // Assert
         var functionWasInvoked = false;
         var expectedMessage = TestConstants.ExceptionMessage;
-        var options = new ExceptionHandlingOptions();
-        options.UseLogger(true);
+        var options = new ExceptionHandlingOptions() { UseExceptionDetails = true };
+        options.UseLogger();
 
         options.AddCustomHandler<Exception>((context, ex, logger) =>
         {
@@ -226,7 +226,7 @@ public sealed class ExceptionHandlingTests
             ex.Message.Should().Be(expectedMessage);
             return Task.CompletedTask;
         });
-
+        
         var server = GetServerWithOptions(options);
         var client = server.CreateClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Test/ThrowException");

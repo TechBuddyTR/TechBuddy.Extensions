@@ -3,10 +3,12 @@
 Exception Handling is giving you the opportunity to manage all *unhandled* exceptions in a single point. By implementing this extension in your WebAPI project, 
 you'll be able to catch all unhandled exceptions and return back a standard exception model as well as you'll be able to provide your own handler method which will be called once any unhandled exception is occured.    
 
+Moreover, you can provide different handler for different `Exception` types. For instance, HandlerX for `ValidationException` or HandlerY for `UnAuthorizationException`, and HandlerZ for the rest
+
 Apart from that, you can customize logging by providing an ILogger interface to log the details once the exception is cought by the handler. 
 `UseExceptionDetails` is important because once the default handler is used, it'll return back the exception details. 
 If `UseExceptionDetails` is true, it returns the StackTrace of the Exception. 
-When it is false, however, it returns the single message ("Internal Server Error!") and 500 StatusCode. So you can use this details in your Dev or PreProd environment but not on production. 
+When it is false, however, it returns the single message ("Internal Server Error Occured!") and 500 StatusCode. So you can use this details in your Dev or PreProd environment but not on production. 
 On the other hand, logging the details is irrelevant to this parameter. No matter it is true or false, it logs everything with StackTrace.  
 
 ### Usage 1  
@@ -16,8 +18,11 @@ On the other hand, logging the details is irrelevant to this parameter. No matte
 app.ConfigureTechBuddyExceptionHandling(opt =>
 {
     var logger = app.Services.GetService<ILogger>();
+    opt.UseExceptionDetails = true; // details will be in the default response model (`DefaultExceptionHandlerResponseModel`)
+    opt.UseLogger(logger); // details will be logged not matter `UseExceptionDetails` is true or false
 
-    opt.UseLogger(logger, true); // details will be in the default response model (`DefaultExceptionHandlerResponseModel`)
+    // If you use logger but provide no logger, it will create its own logger
+    // opt.UseLogger();
 });
 
 ```

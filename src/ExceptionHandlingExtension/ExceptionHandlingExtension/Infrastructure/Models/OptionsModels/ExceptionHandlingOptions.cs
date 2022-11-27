@@ -29,27 +29,25 @@ public class ExceptionHandlingOptions
     /// <summary>
     /// Gets or sets whether the stack trace of the exception will be present in the response model
     /// </summary>
-    internal bool UseExceptionDetails { get; set; }
+    public bool UseExceptionDetails { get; set; }
 
     /// <summary>
     /// Sets the provided <paramref name="logger"/> as the logger in the default exception handler
     /// </summary>
     /// <typeparam name="T">The type of logger</typeparam>
     /// <param name="logger">The logger to be used in default exception handler</param>
-    /// <param name="useExceptionDetails">true when the stack trace of the exception is presented in the response model</param>
-    public void UseLogger<T>(T logger, bool useExceptionDetails = false) where T : ILogger
+    public void UseLogger<T>(T logger) where T : ILogger
     {
         Logger = logger;
-        UseLogger(useExceptionDetails);
+        UseLogger();
     }
 
     /// <summary>
     /// Enables the default ILogger for the default exception handler
     /// </summary>
-    public void UseLogger(bool useExceptionDetails = false)
+    public void UseLogger()
     {
         LoggingEnabled = true;
-        UseExceptionDetails = useExceptionDetails;
     }
 
     /// <summary>
