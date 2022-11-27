@@ -1,5 +1,5 @@
 env:
-  ProjectPath: src/OpenApiExtension/SwaggerExtension
+  ProjectPath: src/SwaggerExtension/SwaggerExtension
   ProjectName: SwaggerExtension
   TagName: OpenApi
 

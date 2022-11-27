@@ -45,13 +45,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandlingExtension"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandlingExtension.Tests", "src\ExceptionHandlingExtension\ExceptionHandlingExtension.Tests\ExceptionHandlingExtension.Tests.csproj", "{A5540922-A24D-461C-BE3B-B8FA85FECFDA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenApiExtensions", "OpenApiExtensions", "{1FF2406F-ADEB-411D-874D-0708BD5579BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SwaggerExtension", "SwaggerExtension", "{1FF2406F-ADEB-411D-874D-0708BD5579BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension", "src\SwaggerExtension\SwaggerExtension\SwaggerExtension.csproj", "{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerExtension", "src\SwaggerExtension\SwaggerExtension\SwaggerExtension.csproj", "{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension.Tests.WebApi", "src\SwaggerExtension\SwaggerExtension.Tests.WebApi\SwaggerExtension.Tests.WebApi.csproj", "{A355085B-4C45-43D5-9559-53461C0BEF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerExtension.Tests.WebApi", "src\SwaggerExtension\SwaggerExtension.Tests.WebApi\SwaggerExtension.Tests.WebApi.csproj", "{A355085B-4C45-43D5-9559-53461C0BEF31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension.Tests", "src\SwaggerExtension\SwaggerExtension.Tests\SwaggerExtension.Tests.csproj", "{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerExtension.Tests", "src\SwaggerExtension\SwaggerExtension.Tests\SwaggerExtension.Tests.csproj", "{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
