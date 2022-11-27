@@ -1,11 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using SwaggerExtension.Tests.WebApi.Controllers.v1;
 using SwaggerExtension.Tests.WebApi.Controllers.v2;
 using SwaggerExtension.Tests.WebApi.Infrastructure.Models;
 using TechBuddy.Extensions.AspNetCore.ApiVersioning;
-using TechBuddy.Extensions.OpenApi.Extensions;
-using TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels;
+using TechBuddy.Extensions.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +22,12 @@ builder.Services.ConfigureTechBuddySwagger(config =>
 {
     config.AddHeader("TenantId", "TB_Company");
 
-    config.BearerConfig = new TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels.SwaggerBearerConfig()
+    config.BearerConfig = new SwaggerBearerConfig()
     {
         AuthEnabled = true
     };
 
-    config.XmlDocConfig = new TechBuddy.Extensions.OpenApi.Infrastructure.ConfigModels.SwaggerDocConfig()
+    config.XmlDocConfig = new SwaggerDocConfig()
     {
         XmlFilePath = "SwaggerExtension.Tests.WebApi.xml"
     };
