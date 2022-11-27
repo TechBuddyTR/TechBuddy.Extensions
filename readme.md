@@ -32,6 +32,7 @@ Not only it will be only a single line of code to use them with default configs,
 | ApiVersioning | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning/) |
 | Validation | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation/) |
 | ExceptionHandling | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling/) |
+| OpenApi | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) |
 
 
 ### Extensions
@@ -41,7 +42,7 @@ There are four different extension libraries planned which are;
  - [ApiVersioning](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ApiVersioningExtension/ApiVersioningExtension)
  - [Global Exception Handling](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ExceptionHandlingExtension/ExceptionHandlingExtension)
  - [Validations (FluentValidation based)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ValidationExtension/ValidationExtension)
- - OpenApi Support (Swagger, Swagger UI)
+  - [OpenApi Support (Swagger, Swagger UI)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/OpenApiExtensions/SwaggerExtension)
 
 
 Every extension library will have their own NuGet Packages. Please find the details under the project folders.

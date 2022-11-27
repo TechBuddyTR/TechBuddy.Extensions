@@ -1,6 +1,6 @@
 env:
-  ProjectPath: src/OpenApiExtension/OpenApiExtension
-  ProjectName: OpenApiExtension
+  ProjectPath: src/OpenApiExtension/SwaggerExtension
+  ProjectName: SwaggerExtension
   TagName: OpenApi
 
 name: Release with Tag (OpenApi.v*.*.*) & Push Nuget
