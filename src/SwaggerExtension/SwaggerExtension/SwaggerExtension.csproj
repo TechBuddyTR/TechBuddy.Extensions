@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+
+		<AssemblyName>TechBuddy.OpenApi</AssemblyName>
+		<RootNamespace>TechBuddy.Extensions.OpenApi</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>TechBuddy.Extensions.OpenApi</PackageId>
+		<PackageTags>OpenApi; OpenApiExtension; Swagger; SwaggerExtension;</PackageTags>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Company>TechBuddyTR Youtube</Company>
+		<Authors>Salih Cantekin, Community </Authors>
+		<Description>Provides extension methods for OpenApi Clients such as Swagger</Description>
+		<PackageIcon>logo.png</PackageIcon>
+		<Copyright>TechBuddyTR Youtube</Copyright>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/TechBuddyTR/TechBuddy.Extensions</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="logo.png" Pack="true" PackagePath="">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+	</ItemGroup>
+
+</Project>

@@ -41,9 +41,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationExtension.Tests.A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionHandlingExtension", "ExceptionHandlingExtension", "{D2AAE295-64F5-4B57-9E13-6D30FF4204FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingExtension", "src\ExceptionHandlingExtension\ExceptionHandlingExtension\ExceptionHandlingExtension.csproj", "{A022F7A7-5E60-4DEE-B218-56FCA2464410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandlingExtension", "src\ExceptionHandlingExtension\ExceptionHandlingExtension\ExceptionHandlingExtension.csproj", "{A022F7A7-5E60-4DEE-B218-56FCA2464410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingExtension.Tests", "src\ExceptionHandlingExtension\ExceptionHandlingExtension.Tests\ExceptionHandlingExtension.Tests.csproj", "{A5540922-A24D-461C-BE3B-B8FA85FECFDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandlingExtension.Tests", "src\ExceptionHandlingExtension\ExceptionHandlingExtension.Tests\ExceptionHandlingExtension.Tests.csproj", "{A5540922-A24D-461C-BE3B-B8FA85FECFDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenApiExtensions", "OpenApiExtensions", "{1FF2406F-ADEB-411D-874D-0708BD5579BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension", "src\SwaggerExtension\SwaggerExtension\SwaggerExtension.csproj", "{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension.Tests.WebApi", "src\SwaggerExtension\SwaggerExtension.Tests.WebApi\SwaggerExtension.Tests.WebApi.csproj", "{A355085B-4C45-43D5-9559-53461C0BEF31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerExtension.Tests", "src\SwaggerExtension\SwaggerExtension.Tests\SwaggerExtension.Tests.csproj", "{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +95,18 @@ Global
 		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5540922-A24D-461C-BE3B-B8FA85FECFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A355085B-4C45-43D5-9559-53461C0BEF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A355085B-4C45-43D5-9559-53461C0BEF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A355085B-4C45-43D5-9559-53461C0BEF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A355085B-4C45-43D5-9559-53461C0BEF31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F21D17-DFE3-4D57-811B-F64F15D20C2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +122,9 @@ Global
 		{1BEB1E5C-26D3-42A2-B47A-7BF113822AA6} = {60EF4920-1A12-4E7F-822B-CE069E232A63}
 		{A022F7A7-5E60-4DEE-B218-56FCA2464410} = {D2AAE295-64F5-4B57-9E13-6D30FF4204FE}
 		{A5540922-A24D-461C-BE3B-B8FA85FECFDA} = {D2AAE295-64F5-4B57-9E13-6D30FF4204FE}
+		{0F4CEC96-AF8D-404E-BF9D-4EE8C7696D8E} = {1FF2406F-ADEB-411D-874D-0708BD5579BE}
+		{A355085B-4C45-43D5-9559-53461C0BEF31} = {1FF2406F-ADEB-411D-874D-0708BD5579BE}
+		{C9F21D17-DFE3-4D57-811B-F64F15D20C2B} = {1FF2406F-ADEB-411D-874D-0708BD5579BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5085DADC-BB1A-4E92-8CD6-A7CCC1DE312E}

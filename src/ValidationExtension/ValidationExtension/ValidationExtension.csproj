@@ -34,24 +34,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="logo.png" Pack="true" PackagePath="">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+
 	</ItemGroup>
 
-	 <ItemGroup>
-		<Content Include="logo.png" Pack="true" PackagePath="">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-	 
 	<ItemGroup>
+		<Content Include="logo.png" Pack="true" PackagePath="">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
 		<None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
 		<None Include="README.md" Pack="true" PackagePath="\" />
 
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-
-	</ItemGroup>			
+	</ItemGroup>
 	
 
 
