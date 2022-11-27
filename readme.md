@@ -42,7 +42,7 @@ There are four different extension libraries planned which are;
  - [ApiVersioning](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ApiVersioningExtension/ApiVersioningExtension)
  - [Global Exception Handling](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ExceptionHandlingExtension/ExceptionHandlingExtension)
  - [Validations (FluentValidation based)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/ValidationExtension/ValidationExtension)
-  - [OpenApi Support (Swagger, Swagger UI)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/dev/src/OpenApiExtensions/SwaggerExtension)
+ - [OpenApi Support (Swagger, Swagger UI)](https://github.com/TechBuddyTR/TechBuddy.Extensions/tree/master/src/SwaggerExtension/SwaggerExtension)
 
 
 Every extension library will have their own NuGet Packages. Please find the details under the project folders.
