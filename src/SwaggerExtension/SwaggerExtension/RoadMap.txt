@@ -1,0 +1,19 @@
+
+
+ - Swagger Headers
+ - Authorization - Bearer
+   - HeaderKey
+   - Description
+ - XmlDoc Support
+   - FilePath
+ - ApiVersioning - Swagger UI Implementation
+
+
+ - ResponseTypeModelProvider
+   - Default HttpStatusCodes
+   - Default Types (Task, Task<ActionResult>, Task<IActionResult>)
+   - Default HttpMethods
+   - Exclude Controller
+   - Exclude Action
+   - Default StatusCode for HttpMethods
+   - Specific Models for Specific StatusCodes
