@@ -2,12 +2,12 @@
 
 ### Repo Stat
 
-[![](https://img.shields.io/github/commit-activity/m/techbuddytr/TechBuddy.Extensions?style=for-the-badge)]()
-[![](https://img.shields.io/github/contributors/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
-[![](https://img.shields.io/github/issues-pr/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
-[![](https://img.shields.io/github/issues-pr-closed/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
-[![](https://img.shields.io/github/issues-raw/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
-[![](https://img.shields.io/github/issues-closed/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
+[![](https://img.shields.io/github/commit-activity/m/techbuddytr/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/commits/dev)
+[![](https://img.shields.io/github/contributors/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/graphs/contributors)  
+[![](https://img.shields.io/github/issues-pr/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/pulls)
+[![](https://img.shields.io/github/issues-pr-closed/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/pulls?q=is%3Apr+is%3Aclosed)  
+[![](https://img.shields.io/github/issues-raw/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/issues)
+[![](https://img.shields.io/github/issues-closed/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)](https://github.com/TechBuddyTR/TechBuddy.Extensions/issues?q=is%3Aissue+is%3Aclosed)
 
 [![](https://img.shields.io/github/repo-size/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
 [![](https://img.shields.io/github/languages/code-size/TechBuddyTR/TechBuddy.Extensions?style=for-the-badge)]()
