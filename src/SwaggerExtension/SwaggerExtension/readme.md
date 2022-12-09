@@ -2,6 +2,24 @@
 
 Swagger Extension is aiming to implement the Swagger and Swagger UI with all default configs and additionally some another features. 
 
+## Nuget
+| Package Name | Package | Download |
+| ------------- | ------------- | ------------- |
+| OpenApi | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) |
+
+### Installation
+
+```bash
+PM> NuGet\Install-Package TechBuddy.Extensions.OpenApi
+```
+or
+```bash
+dotnet add package TechBuddy.Extensions.OpenApi
+```
+
+----
+
+
 ### Usage 1
 
 The basic implementation is to implement default Swagger and SwaggerUI.
