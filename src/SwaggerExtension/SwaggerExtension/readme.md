@@ -129,18 +129,27 @@ builder.Services.ConfigureTechBuddySwagger(config =>
     */
 
     providerConfig
-                .AddDefaultType(typeof(Task), typeof(IActionResult), typeof(ActionResult))
-                //.AddDefaultResponseHttpStatusCode(HttpStatusCode.OK)
-                .AddDefaultResponseHttpStatusCode(HttpStatusCode.InternalServerError)
-                .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Get, HttpStatusCode.OK)
-                .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Post, HttpStatusCode.OK)
-                .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Post, HttpStatusCode.BadRequest)
-                .AddSpecificTypeForSpecificHttpStatusCode(typeof(string), HttpStatusCode.OK)
-                .AddSpecificTypeForSpecificHttpStatusCode(typeof(ValidationErrorResponseModel), HttpStatusCode.BadRequest)
-                .ExcludeAction(nameof(TestController), nameof(TestController.GetExcluded))
-                .ExcludeController(nameof(TestController))
-                .ExcludeAction(nameof(TestController.GetExcluded))
-    ;
+         // Default types that would be overriden
+        .AddDefaultType(typeof(Task), typeof(ActionResult), typeof(IActionResult))
+
+         // Mark all the endpoints will return OK (200)
+        .AddDefaultResponseHttpStatusCodeForAll(HttpStatusCode.OK)
+
+         // Mark all the Endpoints that return OK, will return string in response
+        .AddSpecificTypeForSpecificHttpStatusCode(HttpStatusCode.OK, typeof(string))
+
+         // Mark all the endpoints that return Post, may return BadRequest 
+        .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Post, HttpStatusCode.BadRequest)
+
+        // Mark all the endpoints that return BadRequest, will return BadRequestResponseModel in response
+        .AddSpecificTypeForSpecificHttpStatusCode(HttpStatusCode.BadRequest, typeof(BadRequestResponseModel))
+
+         // Mark All the endpoints that return Get, may return NoContent
+        .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Get, HttpStatusCode.NoContent)
+        
+        //.ExcludeAction(nameof(TestController.Get))
+        //.ExcludeController(nameof(TestController));
+        ;
 
     config.ResponseTypeModelProviderConfig = providerConfig;
 });
