@@ -11,6 +11,24 @@ If `UseExceptionDetails` is true, it returns the StackTrace of the Exception.
 When it is false, however, it returns the single message ("Internal Server Error Occured!") and 500 StatusCode. So you can use this details in your Dev or PreProd environment but not on production. 
 On the other hand, logging the details is irrelevant to this parameter. No matter it is true or false, it logs everything with StackTrace.  
 
+## Nuget
+| Package Name | Package | Download |
+| ------------- | ------------- | ------------- |
+| ExceptionHandling | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ExceptionHandling?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ExceptionHandling/) |
+
+### Installation
+
+```bash
+PM> NuGet\Install-Package TechBuddy.Extensions.AspNetCore.ExceptionHandling
+```
+or
+```bash
+dotnet add package TechBuddy.Extensions.AspNetCore.ExceptionHandling
+```
+
+----
+
+
 ### Usage 1  
 
 ```csharp
