@@ -6,6 +6,22 @@ ApiVersioning Extension is aiming to add ApiVersioning Feature for your WebAPI P
 ApiVersioningConfig has three different functions, can be seen below, which is to add the ability to the system to read the provided api-version from different places.
 
 
+## Nuget
+| Package Name | Package | Download |
+| ------------- | ------------- | ------------- |
+| ApiVersioning | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning/) |
+
+### Installation
+
+```bash
+PM> NuGet\Install-Package TechBuddy.Extensions.AspNetCore.ApiVersioning
+```
+or
+```bash
+dotnet add package TechBuddy.Extensions.AspNetCore.ApiVersioning
+```
+
+----
 
 ## Usage
 
