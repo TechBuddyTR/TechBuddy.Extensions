@@ -9,7 +9,7 @@ ApiVersioningConfig has three different functions, can be seen below, which is t
 ## Nuget
 | Package Name | Package | Download |
 | ------------- | ------------- | ------------- |
-| OpenApi | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.OpenApi?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.OpenApi) |
+| ApiVersioning | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.AspNetCore.ApiVersioning?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.AspNetCore.ApiVersioning/) |
 
 ### Installation
 
