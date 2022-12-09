@@ -18,7 +18,7 @@ PM> NuGet\Install-Package TechBuddy.Extensions.AspNetCore.ApiVersioning
 ```
 or
 ```bash
-dotnet add package TechBuddy.Extensions.AspNetCore.ApiVersioning --version 1.1.2
+dotnet add package TechBuddy.Extensions.AspNetCore.ApiVersioning
 ```
 
 ----
