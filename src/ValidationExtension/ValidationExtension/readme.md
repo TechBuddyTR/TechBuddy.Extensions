@@ -4,7 +4,25 @@
 Validation Extension is aiming to give you the opportunity to add FluentValidation in your WebAPI or HttpTrigger Azure Functions. 
 In this library we have extensions methods for two different object which are `HttpRequest` for Azure Functions and `IServiceCollection` for WebAPI projects.
 
-<br>
+<br />
+
+
+## Nuget
+| Package Name | Package | Download |
+| ------------- | ------------- | ------------- |
+| Validation | [![](https://img.shields.io/nuget/v/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation) | [![](https://img.shields.io/nuget/dt/TechBuddy.Extensions.Validation?style=for-the-badge)](https://www.nuget.org/packages/TechBuddy.Extensions.Validation/) |
+
+### Installation
+
+```bash
+PM> NuGet\Install-Package TechBuddy.Extensions.Validation
+```
+or
+```bash
+dotnet add package TechBuddy.Extensions.Validation
+```
+
+----
 
 
 ## Usages
