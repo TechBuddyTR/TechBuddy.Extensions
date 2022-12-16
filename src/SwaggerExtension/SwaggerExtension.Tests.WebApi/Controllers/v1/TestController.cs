@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SwaggerExtension.Tests.WebApi.Infrastructure.Models;
 
 namespace SwaggerExtension.Tests.WebApi.Controllers.v1;
 
