@@ -36,13 +36,13 @@ public static class ApiVersioningDependencyInjectionExtension
         ApiVersioningConfig config = new();
         options.Invoke(config);
 
-        AddApiVersioning(services, config);
+        services.AddApiVersioning(config);
 
 
         return services;
     }
 
-    private static void AddApiVersioning(IServiceCollection services, ApiVersioningConfig config)
+    private static void AddApiVersioning(this IServiceCollection services, ApiVersioningConfig config)
     {
         services.AddApiVersioning(opt =>
         {
@@ -55,23 +55,23 @@ public static class ApiVersioningDependencyInjectionExtension
 
             #region Default Version Parsing
 
-            if (!string.IsNullOrEmpty(config.DefaultApiVersion))
+            ApiVersion defaultVersion = ApiVersion.Default;
+            if (!string.IsNullOrWhiteSpace(config.DefaultApiVersion))
             {
-                var validApiVersion = ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out ApiVersion defaultVersion);
-                if (!validApiVersion)
+                if (!ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out defaultVersion))
                     throw new ArgumentException($"Not valid version found({config.DefaultApiVersion}). Usage Example: 1.0 or 1 or v1.0 or v1");
-
-                opt.DefaultApiVersion = defaultVersion; //ApiVersion.Default;
             }
+
+            opt.DefaultApiVersion = defaultVersion!;
 
             #endregion
 
             #region ApiVersionReaders
 
-            var readers = new List<IApiVersionReader>();
-
-            if (config.ApiVersioningReaders is not null && config.ApiVersioningReaders.Any())
+            if (config.ApiVersioningReaders is { Count: > 0 })
             {
+                var readers = new List<IApiVersionReader>();
+
                 foreach (var reader in config.ApiVersioningReaders)
                 {
                     IApiVersionReader apiVersionReader = reader.Key switch
@@ -84,19 +84,18 @@ public static class ApiVersioningDependencyInjectionExtension
 
                     readers.Add(apiVersionReader);
                 }
-            }
 
-            // The way we read the api version
-            opt.ApiVersionReader = ApiVersionReader.Combine(readers);
+                // The way we read the api version
+                opt.ApiVersionReader = ApiVersionReader.Combine(readers);
+            }
 
             #endregion
         });
         if (config.EnableVersionedApiExplorer)
-            AddApiVersioningExplorer(services);
-
+            services.AddApiVersioningExplorer();
     }
 
-    private static void AddApiVersioningExplorer(IServiceCollection services)
+    private static void AddApiVersioningExplorer(this IServiceCollection services)
     {
         services.AddVersionedApiExplorer(options =>
         {
