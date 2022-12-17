@@ -36,13 +36,13 @@ public static class ApiVersioningDependencyInjectionExtension
         ApiVersioningConfig config = new();
         options.Invoke(config);
 
-        services.AddApiVersioning(config);
+        AddApiVersioning(services, config);
 
 
         return services;
     }
 
-    private static void AddApiVersioning(this IServiceCollection services, ApiVersioningConfig config)
+    private static void AddApiVersioning(IServiceCollection services, ApiVersioningConfig config)
     {
         services.AddApiVersioning(opt =>
         {
@@ -55,14 +55,13 @@ public static class ApiVersioningDependencyInjectionExtension
 
             #region Default Version Parsing
 
-            ApiVersion defaultVersion = ApiVersion.Default;
             if (!string.IsNullOrWhiteSpace(config.DefaultApiVersion))
             {
-                if (!ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out defaultVersion))
+                if (!ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out ApiVersion defaultVersion))
                     throw new ArgumentException($"Not valid version found({config.DefaultApiVersion}). Usage Example: 1.0 or 1 or v1.0 or v1");
-            }
 
-            opt.DefaultApiVersion = defaultVersion!;
+                opt.DefaultApiVersion = defaultVersion!;
+            }
 
             #endregion
 

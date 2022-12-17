@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using TechBuddy.Extensions.OpenApi.Infrastructure;
 using TechBuddy.Extensions.OpenApi.Infrastructure.OperationFilters;
@@ -79,15 +77,15 @@ public static class SwaggerDependencyInjectionExtensions
         return services;
     }
 
-
     /// <summary>
     /// This is used to enable Swagger in your WebApi
     /// </summary>
     /// <param name="app">IApplicationBuilder</param>
+    /// <param name="withApiVersioning">This is used to enable Swagger with ApiVersioning Features</param>
     /// <returns>returns app</returns>
-    public static IApplicationBuilder UseTechBuddySwagger(this IApplicationBuilder app)
+    public static IApplicationBuilder UseTechBuddySwagger(this IApplicationBuilder app, bool withApiVersioning = true)
     {
-        IApiVersionDescriptionProvider apiVersioningProvider = app.ApplicationServices.GetService<IApiVersionDescriptionProvider>();
+        IApiVersionDescriptionProvider apiVersioningProvider = withApiVersioning ? app.ApplicationServices.GetService<IApiVersionDescriptionProvider>() : null;
         SwaggerConfig swaggerConfig = app.ApplicationServices.GetRequiredService<SwaggerConfig>();
 
         app.UseSwagger();
@@ -122,7 +120,11 @@ public static class SwaggerDependencyInjectionExtensions
     {
         if (provider is null)
         {
-            options.SwaggerEndpoint(SwaggerConstants.DefaultSwaggerEndpoint, SwaggerConstants.DefaultSwaggerApiVersion);
+            string endpointName = !string.IsNullOrWhiteSpace(config?.ProjectName)
+                ? config.ProjectName
+                : SwaggerConstants.DefaultSwaggerApiVersion;
+
+            options.SwaggerEndpoint(SwaggerConstants.DefaultSwaggerEndpoint, $"{endpointName}");
             return;
         }
 
