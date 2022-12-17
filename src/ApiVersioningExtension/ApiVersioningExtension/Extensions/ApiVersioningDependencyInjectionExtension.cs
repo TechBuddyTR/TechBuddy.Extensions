@@ -55,23 +55,22 @@ public static class ApiVersioningDependencyInjectionExtension
 
             #region Default Version Parsing
 
-            if (!string.IsNullOrEmpty(config.DefaultApiVersion))
+            if (!string.IsNullOrWhiteSpace(config.DefaultApiVersion))
             {
-                var validApiVersion = ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out ApiVersion defaultVersion);
-                if (!validApiVersion)
+                if (!ApiVersion.TryParse(config.DefaultApiVersion.Replace("v", ""), out ApiVersion defaultVersion))
                     throw new ArgumentException($"Not valid version found({config.DefaultApiVersion}). Usage Example: 1.0 or 1 or v1.0 or v1");
 
-                opt.DefaultApiVersion = defaultVersion; //ApiVersion.Default;
+                opt.DefaultApiVersion = defaultVersion!;
             }
 
             #endregion
 
             #region ApiVersionReaders
 
-            var readers = new List<IApiVersionReader>();
-
-            if (config.ApiVersioningReaders is not null && config.ApiVersioningReaders.Any())
+            if (config.ApiVersioningReaders is { Count: > 0 })
             {
+                var readers = new List<IApiVersionReader>();
+
                 foreach (var reader in config.ApiVersioningReaders)
                 {
                     IApiVersionReader apiVersionReader = reader.Key switch
@@ -84,16 +83,15 @@ public static class ApiVersioningDependencyInjectionExtension
 
                     readers.Add(apiVersionReader);
                 }
-            }
 
-            // The way we read the api version
-            opt.ApiVersionReader = ApiVersionReader.Combine(readers);
+                // The way we read the api version
+                opt.ApiVersionReader = ApiVersionReader.Combine(readers);
+            }
 
             #endregion
         });
         if (config.EnableVersionedApiExplorer)
             AddApiVersioningExplorer(services);
-
     }
 
     private static void AddApiVersioningExplorer(IServiceCollection services)

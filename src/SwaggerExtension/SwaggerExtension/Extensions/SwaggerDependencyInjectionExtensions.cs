@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using TechBuddy.Extensions.OpenApi.Infrastructure;
 using TechBuddy.Extensions.OpenApi.Infrastructure.OperationFilters;
@@ -16,7 +14,6 @@ namespace TechBuddy.Extensions.OpenApi;
 /// </summary>
 public static class SwaggerDependencyInjectionExtensions
 {
-    private static SwaggerConfig config;
 
     /// <summary>
     /// This is used to configure the Swagger implementation with default configuration
@@ -37,11 +34,11 @@ public static class SwaggerDependencyInjectionExtensions
     /// <param name="services">IServiceCollection</param>
     /// <param name="configAction">The configuration to customize the Swagger</param>
     /// <returns>returns services</returns>
-    public static IServiceCollection ConfigureTechBuddySwagger(this IServiceCollection services,
-                                                                Action<SwaggerConfig> configAction)
+    public static IServiceCollection ConfigureTechBuddySwagger(this IServiceCollection services, Action<SwaggerConfig> configAction)
     {
-        config = new SwaggerConfig();
+        SwaggerConfig config = new();
         configAction(config);
+        services.AddSingleton(config);
 
         if (config.ResponseTypeModelProviderConfig is not null)
         {
@@ -54,11 +51,11 @@ public static class SwaggerDependencyInjectionExtensions
 
             if (config.BearerConfig is not null)
             {
-                c.AddSecurityDefinition(config.BearerConfig.HeaderKey, new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+                c.AddSecurityDefinition(config.BearerConfig.HeaderKey, new OpenApiSecurityScheme()
                 {
-                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    In = ParameterLocation.Header,
                     BearerFormat = SwaggerConstants.BearerFormat,
-                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+                    Type = SecuritySchemeType.Http,
                     Scheme = config.BearerConfig.HeaderKey,
                     Description = config.BearerConfig.BearerDescription
                 });
@@ -80,52 +77,28 @@ public static class SwaggerDependencyInjectionExtensions
         return services;
     }
 
-
     /// <summary>
     /// This is used to enable Swagger in your WebApi
     /// </summary>
     /// <param name="app">IApplicationBuilder</param>
+    /// <param name="withApiVersioning">This is used to enable Swagger with ApiVersioning Features</param>
     /// <returns>returns app</returns>
-    public static IApplicationBuilder UseTechBuddySwagger(this IApplicationBuilder app)
+    public static IApplicationBuilder UseTechBuddySwagger(this IApplicationBuilder app, bool withApiVersioning = true)
     {
-        return UseTechBuddySwaggerWithApiVersioning(app, null);
-    }
+        IApiVersionDescriptionProvider apiVersioningProvider = withApiVersioning ? app.ApplicationServices.GetService<IApiVersionDescriptionProvider>() : null;
+        SwaggerConfig swaggerConfig = app.ApplicationServices.GetRequiredService<SwaggerConfig>();
 
-    /// <summary>
-    /// This is used to enable Swagger with ApiVersioning Features
-    /// </summary>
-    /// <param name="app">IApplicationBuilder</param>
-    /// <param name="provider">IApiVersionDescriptionProvider</param>
-    /// <returns>returns app</returns>
-    public static IApplicationBuilder UseTechBuddySwaggerWithApiVersioning(this IApplicationBuilder app,
-        IApiVersionDescriptionProvider provider)
-    {
         app.UseSwagger();
 
         app.UseSwaggerUI(options =>
         {
             SetOptionDetails(options);
 
-            SetSwaggerEndPoint(options, provider);
+            SetSwaggerEndPoint(options, swaggerConfig, apiVersioningProvider);
         });
 
         return app;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private static void SetOptionDetails(SwaggerUIOptions options)
     {
@@ -143,12 +116,15 @@ public static class SwaggerDependencyInjectionExtensions
         options.EnableValidator();
     }
 
-    private static void SetSwaggerEndPoint(SwaggerUIOptions options,
-                                           IApiVersionDescriptionProvider provider = null)
+    private static void SetSwaggerEndPoint(SwaggerUIOptions options, SwaggerConfig config, IApiVersionDescriptionProvider provider = null)
     {
         if (provider is null)
         {
-            options.SwaggerEndpoint(SwaggerConstants.DefaultSwaggerEndpoint, SwaggerConstants.DefaultSwaggerApiVersion);
+            string endpointName = !string.IsNullOrWhiteSpace(config?.ProjectName)
+                ? config.ProjectName
+                : SwaggerConstants.DefaultSwaggerApiVersion;
+
+            options.SwaggerEndpoint(SwaggerConstants.DefaultSwaggerEndpoint, $"{endpointName}");
             return;
         }
 
@@ -159,76 +135,4 @@ public static class SwaggerDependencyInjectionExtensions
             options.SwaggerEndpoint(swaggerFileUrl, name);
         }
     }
-
-    private class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
-    {
-        private readonly IApiVersionDescriptionProvider provider;
-
-        /// <summary>
-        /// The constructure with <see cref="IApiVersionDescriptionProvider"/> so DI can create by providing in case of ApiVersioning is ENABLED
-        /// </summary>
-        /// <param name="provider"></param>
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider)
-        {
-            this.provider = provider;
-        }
-
-        /// <summary>
-        /// The parameterless constructure so DI can create without providing <see cref="IApiVersionDescriptionProvider"/> in case of ApiVersioning is DISABLED
-        /// </summary>
-        public ConfigureSwaggerOptions()
-        {
-
-        }
-
-        public void Configure(string name, SwaggerGenOptions options)
-        {
-            Configure(options);
-        }
-
-        public void Configure(SwaggerGenOptions options)
-        {
-            if (provider?.ApiVersionDescriptions is not null)
-            {
-                foreach (var description in provider.ApiVersionDescriptions)
-                {
-                    options.SwaggerDoc(description.GroupName, CreateVersionInfo(description));
-                }
-            }
-
-            if (config.XmlDocConfig is null || !config.XmlDocConfig.XmlDocEnabled)
-                return;
-
-            var fileExt = Path.GetExtension(config.XmlDocConfig.XmlFilePath);
-            if (!fileExt.Equals(".xml", StringComparison.OrdinalIgnoreCase))
-                throw new ArgumentException("XMLDocFile extension must be .xml!");
-
-            if (!File.Exists(config.XmlDocConfig.XmlFilePath))
-                throw new Exception($"XMLDocFile could not found in {config.XmlDocConfig.XmlFilePath}");
-
-            options.IncludeXmlComments(config.XmlDocConfig.XmlFilePath, true);
-        }
-
-        private static OpenApiInfo CreateVersionInfo(ApiVersionDescription description)
-        {
-            var info = new OpenApiInfo()
-            {
-                Title = config.ProjectName,
-                Version = description.ApiVersion.ToString(),
-                Contact = new OpenApiContact()
-                {
-                    Name = "https://youtube.com/c/TechBuddyTR"
-                }
-            };
-
-            if (description.IsDeprecated)
-            {
-                info.Description += " This API has been deprecated.";
-            }
-
-            return info;
-        }
-    }
 }
-
-

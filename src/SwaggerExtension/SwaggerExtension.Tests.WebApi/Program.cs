@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using SwaggerExtension.Tests.WebApi.Controllers.v2;
 using SwaggerExtension.Tests.WebApi.Infrastructure.Models;
 using TechBuddy.Extensions.AspNetCore.ApiVersioning;
@@ -45,7 +44,7 @@ builder.Services.ConfigureTechBuddySwagger(config =>
         .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Post, System.Net.HttpStatusCode.BadRequest)
         .AddSpecificTypeForSpecificHttpStatusCode(System.Net.HttpStatusCode.BadRequest, typeof(BadRequestResponseModel))
         .AddDefaultResponseHttpStatusCodeForHttpMethods(HttpMethod.Get, System.Net.HttpStatusCode.NoContent)
-        
+
         .ExcludeController(nameof(TestControllerV2));
 
     config.ResponseTypeModelProviderConfig = provider;
@@ -54,12 +53,7 @@ builder.Services.ConfigureTechBuddySwagger(config =>
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
-{
-    //app.UseTechBuddySwagger();
-    app.UseTechBuddySwaggerWithApiVersioning(app.Services.GetRequiredService<IApiVersionDescriptionProvider>());
-}
-
-
+    app.UseTechBuddySwagger();
 
 
 app.UseHttpsRedirection();
