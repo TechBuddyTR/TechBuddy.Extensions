@@ -91,10 +91,10 @@ public static class ApiVersioningDependencyInjectionExtension
             #endregion
         });
         if (config.EnableVersionedApiExplorer)
-            services.AddApiVersioningExplorer();
+            AddApiVersioningExplorer(services);
     }
 
-    private static void AddApiVersioningExplorer(this IServiceCollection services)
+    private static void AddApiVersioningExplorer(IServiceCollection services)
     {
         services.AddVersionedApiExplorer(options =>
         {
