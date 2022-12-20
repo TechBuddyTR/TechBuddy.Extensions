@@ -34,6 +34,11 @@ public class SwaggerConfig
     /// </summary>
     public ResponseTypeModelProviderConfig ResponseTypeModelProviderConfig { get; set; }
 
+    /// <summary>
+    /// true when JsonIgnore is enabled on Swagger UI
+    /// </summary>
+    public bool EnabledJsonIgnoreFilter { get; set; } = true;
+
 
 
 
