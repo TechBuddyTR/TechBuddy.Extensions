@@ -47,6 +47,11 @@ public static class SwaggerDependencyInjectionExtensions
 
         services.AddSwaggerGen(c =>
         {
+            if (config.EnabledJsonIgnoreFilter)
+            {
+                c.OperationFilter<JsonIgnoreOperationFilter>();
+            }
+
             c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
             if (config.BearerConfig is not null)

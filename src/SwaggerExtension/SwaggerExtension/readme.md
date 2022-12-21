@@ -34,6 +34,8 @@ builder.Services.ConfigureTechBuddySwagger();
 builder.Services.ConfigureTechBuddySwagger(config =>
 {
     config.ProjectName = "TechBuddy.Extensions"; // The project name that'll be used on Swagger UI and Swagger documentation
+
+    config.EnabledJsonIgnoreFilter = true; // true when JsonIgnore is enabled on Swagger UI
     
     // To enable Bearer Authentication for Swagger UI
     config.BearerConfig = new SwaggerBearerAuthConfig()
